@@ -12,7 +12,6 @@ export default function Landing(){
         .then(response => setMovies([...response.data]))
     }, []);
 
-    console.log(movies);
     return (
         <>
             <Container>

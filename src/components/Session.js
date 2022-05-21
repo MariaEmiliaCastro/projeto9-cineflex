@@ -36,8 +36,10 @@ export default function Session () {
         console.log(payload);
         axios.post("https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many", payload)
         .then(response => {
-            setSucesso(true);
+            console.log(response)
+            setSucesso(true);            
         })
+        .catch(err => console.log(err));
     }
 
     return (

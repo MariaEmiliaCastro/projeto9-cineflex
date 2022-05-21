@@ -7,7 +7,6 @@ import ShowtimeDay from "./ShowtimeDay";
 export default function Showtimes () {
     const { idFilme } = useParams();
     const [showtime, setShowtime] = React.useState([]);
-    console.log(idFilme)
 
     React.useEffect(() => {
         axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/movies/${idFilme}/showtimes`)

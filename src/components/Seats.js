@@ -1,21 +1,34 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export default function Seats ( { id, name, isAvailable } ) {
+export default function Seats ( { id, name, assentosSelecionados, setAssentosSelecionados, isAvailable, cor }) {
 
-    const [isChosen, setIsChosen] = React.useState(isAvailable);
-
+    const [color, setColor] = React.useState(['#C3CFD9']);
+    const [border, setBorder] = React.useState(['#7B8B99']);
+    const [selected, setSelected] = React.useState(false);
     const checkAvailability = (e) => {
         if(isAvailable){
-            setIsChosen(true);
+            if(!selected){
+                setAssentosSelecionados(oldNames => [...oldNames, Number(name)]);
+                setColor('#8DD7CF');
+                setBorder('#1AAE9E');
+                setSelected(true);
+            }else{
+                assentosSelecionados.pop();
+                setColor('#C3CFD9');
+                setBorder('#7B8B99')
+                setSelected(true);
+            }
+
+
         }else{
-            console.log("Ocupado")
+            alert("Esse assento não está disponível");
         }
     }
 
     return (
         <>
-        <Container isAvailable={isAvailable} isChosen={isChosen} onClick={checkAvailability}>
+        <Container isAvailable={isAvailable} color={color} border={border} onClick={checkAvailability}>
             {name}
         </Container>
         </>
@@ -25,8 +38,8 @@ export default function Seats ( { id, name, isAvailable } ) {
 const Container = styled.div`
     width: 26px;
     height: 26px;
-    background-color: ${props => props.isAvailable ? '#C3CFD9' : '#FBE192'};
-    border: 1px solid ${props => props.isAvailable ? '#7B8B99' : '#F7C52B'};
+    background-color: ${props => props.isAvailable ? props.color : '#FBE192'};
+    border: 1px solid ${props => props.isAvailable ? props.border : '#F7C52B'};
     border-radius: 12px;
     display: flex;
     justify-content: center;

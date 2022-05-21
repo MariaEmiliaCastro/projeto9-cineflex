@@ -74,11 +74,11 @@ export default function Session () {
                             <div>
                                 <label>Nome do Comprador:</label>
                                 <br/>
-                                <input type="text" value={nome} placeholder='Digite seu nome...' onChange={(e) => setNome(e.target.value)}/>
+                                <input type="text" value={nome} placeholder='Digite seu nome...' required onChange={(e) => setNome(e.target.value)}/>
                                 <br/>
                                 <label>CPF do Comprador:</label>
                                 <br/>
-                                <input type="text" value={cpf} placeholder='Digite seu CPF...' onChange={(e) => setCpf(e.target.value)}/>
+                                <input type="text" value={cpf} placeholder='Digite seu CPF...' required onChange={(e) => setCpf(e.target.value)}/>
                                 <br/>
                             </div>
                             <div className='btn'>

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export default function Seats ( { id, name, assentosSelecionados, setAssentosSelecionados, isAvailable, cor }) {
+export default function Seats ( { id, name, setIds, assentosSelecionados, setAssentosSelecionados, isAvailable, cor }) {
 
     const [color, setColor] = React.useState(['#C3CFD9']);
     const [border, setBorder] = React.useState(['#7B8B99']);
@@ -10,6 +10,7 @@ export default function Seats ( { id, name, assentosSelecionados, setAssentosSel
         if(isAvailable){
             if(!selected){
                 setAssentosSelecionados(oldNames => [...oldNames, Number(name)]);
+                setIds(oldIds => [...oldIds, id]);
                 setColor('#8DD7CF');
                 setBorder('#1AAE9E');
                 setSelected(true);

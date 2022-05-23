@@ -9,6 +9,7 @@ export default function Session () {
     
     const [data, setData] = React.useState([]);
     const [assentosSelecionados, setAssentosSelecionados] = React.useState([]);
+    const [ids, setIds] = React.useState([]);
 
     const [nome, setNome] = React.useState("");
     const [cpf, setCpf] = React.useState("");
@@ -25,10 +26,9 @@ export default function Session () {
     const assentos = data.seats;
     const handleForm = (event) => {
         event.preventDefault();
-        console.log(nome, cpf);
 
         const payload = {
-            ids: assentosSelecionados,
+            ids: ids,
             name: nome,
             cpf: cpf
         }
@@ -51,7 +51,7 @@ export default function Session () {
                 :
                 <>  <div className='seats'>
                         {assentos.map(({ id, name, isAvailable }, index) => 
-                            <Seats id={id} name={name} isAvailable={isAvailable} assentosSelecionados={assentosSelecionados} setAssentosSelecionados={setAssentosSelecionados} key={index}/>
+                            <Seats id={id} name={name} setIds={setIds} isAvailable={isAvailable} assentosSelecionados={assentosSelecionados} setAssentosSelecionados={setAssentosSelecionados} key={index}/>
                         )}                    
                     </div>      
                     <div >

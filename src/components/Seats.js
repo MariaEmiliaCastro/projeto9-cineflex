@@ -17,7 +17,7 @@ export default function Seats ( { id, name, assentosSelecionados, setAssentosSel
                 assentosSelecionados.pop();
                 setColor('#C3CFD9');
                 setBorder('#7B8B99')
-                setSelected(true);
+                setSelected(false);
             }
 
 
